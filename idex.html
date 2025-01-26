@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion - 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('ORION1.png') center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            transition: filter 0.3s ease;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            padding: 50px 0;
+            z-index: 10;
+        }
+
+        .section {
+            font-size: 1.2em;
+            color: #dfdada;
+            text-transform: capitalize;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover, .section a:hover {
+            opacity: 0.8;
+        }
+
+        .section a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            border: 3px dotted white;
+            border-radius: 3%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .window {
+            width: 90%;
+            height: 90%;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 20px;
+            color: white;
+            border-radius: 10%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        #windowTitle {
+            font-family: sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: lighter;
+        }
+
+        #contentDisplay {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid white;
+            border-top: none;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        td img {
+            width: 200px;
+            height: 200px;
+            border-radius: 80%;
+        }
+
+        /* Custom scrollbar styling */
+        .window::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .window::-webkit-scrollbar-track {
+            background: #333;
+        }
+
+        .window::-webkit-scrollbar-thumb {
+            background: #000;
+            border-radius: 5px;
+        }
+
+        .window::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="section" data-title="Camera">CAMERA</div>
+        <div class="section" data-title="Sensor">SENSOR</div>
+        <div class="section" data-title="Location">LOCATION</div>
+        <div class="section" data-title="Team">TEAM</div>
+        <div class="section" data-title="About IRC">ABOUT IRC</div>
+    </nav>
+
+    <div class="main-content">
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="window">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <h2 id="windowTitle">Title</h2>
+            <div id="contentDisplay">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Generate 35 rows -->
+                        <script>
+                            for (let i = 1; i <= 35; i++) {
+                                document.write(`
+                                    <tr>
+                                        <td><img src="dp.enc" alt="Student ${i}"></td>
+                                        <td>Student ${i}</td>
+                                        <td>Branch ${i % 5 === 0 ? 'ECE' : 'CSE'}</td>
+                                    </tr>
+                                `);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.section[data-title]');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const windowTitle = document.getElementById('windowTitle');
+        const contentDisplay = document.getElementById('contentDisplay');
+        const body = document.body;
+
+        const sensorData = [];
+        const locationData = [];
+
+        async function loadData() {
+            for (let i = 1; i <= 10; i++) {
+                const response = await fetch(`temp/textFiles/${i}.txt`);
+                const text = await response.text();
+
+                if (i % 2 === 0) {
+                    sensorData.push(text);
+                } else {
+                    locationData.push(text);
+                }
+            }
+        }
+
+        sections.forEach(section => {
+            section.addEventListener('click', async () => {
+                const title = section.getAttribute('data-title');
+                windowTitle.textContent = title;
+                overlay.style.display = 'flex';
+                body.style.backgroundImage = 'url(ORION2.png)';
+
+                if (title === "Sensor") {
+                    contentDisplay.textContent = sensorData.join("\n\n");
+                } else if (title === "Location") {
+                    contentDisplay.textContent = locationData.join("\n\n");
+                } else if (title === "Team") {
+                    // Team content already displayed
+                } else {
+                    contentDisplay.textContent = "No content available.";
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            body.style.backgroundImage = 'url(ORION1.png)';
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+                body.style.backgroundImage = 'url(ORION1.png)';
+            }
+        });
+
+        // Load data from text files
+        loadData();
+    </script>
+
+</body>
+</html>
