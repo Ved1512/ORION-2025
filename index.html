@@ -174,32 +174,22 @@
             <h2 id="windowTitle">Title</h2>
             <div id="contentDisplay">
                 <table>
+                   
+
                     <thead>
                         <tr>
-                            <th>Image</th>
+                            <th>Photo</th>
                             <th>Name</th>
                             <th>Branch</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- Generate 35 rows -->
-                        <script>
-                            for (let i = 1; i <= 35; i++) {
-                                document.write(`
-                                    <tr>
-                                        <td><img src="dp.enc" alt="Student ${i}"></td>
-                                        <td>Student ${i}</td>
-                                        <td>Branch ${i % 5 === 0 ? 'ECE' : 'CSE'}</td>
-                                    </tr>
-                                `);
-                            }
-                        </script>
-                    </tbody>
+                    <tbody id="studentTable"></tbody>
+
                 </table>
             </div>
         </div>
     </div>
-
+ 
     <script>
         const sections = document.querySelectorAll('.section[data-title]');
         const overlay = document.getElementById('overlay');
@@ -232,14 +222,13 @@
                 body.style.backgroundImage = 'url(ORION2.png)';
 
                 if (title === "Sensor") {
-                    contentDisplay.textContent = "Ved"
-                   // contentDisplay.textContent = sensorData.join("\n\n");
+                    contentDisplay.textContent = sensorData.join("\n\n");
                 } else if (title === "Location") {
-                    //contentDisplay.textContent = locationData.join("\n\n");
-                } else if (title === "Team") {
-                    // Team content already displayed
-                } else if (title == "About IRC") {
+                    contentDisplay.textContent = locationData.join("\n\n");
+                }  else if (title == "About IRC"){
                     contentDisplay.textContent = `
+                    
+                    
 International Rover Challenge 2025
 Advancing Space Robotics, Inspiring Innovation 
 
@@ -273,9 +262,314 @@ Early Bird Discount Deadline: October 5, 2024.
 Finals: January 28 to February 2, 2025.
 Get ready to challenge your skills, push boundaries, and contribute to shaping the future of space robotics. Don’t miss the chance to be part of this one-of-a-kind event at the world-class Sproscape, one of the largest simulated Mars arenas ever designed.
 
-Visit www.roverchallenge.org for more details and registration information.    
-                        
-   `;
+Visit www.roverchallenge.org for more details and registration information.  
+                    
+                    
+                    
+                    
+                    `;
+                }
+                else if (title == "Camera"){
+
+                    contentDisplay.textContent = "Random shit/"
+
+                } 
+                else if (title == "Team"){
+
+                    const students = 
+[
+ {
+  
+  "Name": "Ved Thakkar ",
+  "Branch": "EC",
+  "Phone No. ": 9429035734,
+  "Admission No.": "U23EE026",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737964755/a91kag8slafthalgplze.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 6:46:59",
+  "Name": "Divya Thakar",
+  "Branch": "Electrical ",
+  "Phone No. ": 7359038044,
+  "Admission No.": "U21EE024",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965414/Passport/ux4flspxsm6u7r0ob41x.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:03:51",
+  "Name": "Harishree Shukla",
+  "Branch": "Electrical ",
+  "Phone No. ": 8401782270,
+  "Admission No.": "U23EE108 ",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965420/Passport/rlcnhyodudf0a8gffvkn.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:14:18",
+  "Name": "Jeet K. Patel",
+  "BranchBranch": "Mechanical",
+  "Phone No. ": 9316911377,
+  "Admission No.": "U23ME086",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965414/Passport/ky2qv7kuftn0fqlxteiu.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:22:10",
+  "Name": "Yadav Sachin Maniram",
+  "Branch": "Mechanical",
+  "Phone No. ": 6354199702,
+  "Admission No.": "U23ME055",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965421/Passport/bqsl9dlub1gxn7qt9luf.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:22:10",
+  "Name": "Shivam Verma",
+  "Branch": "Mechanical",
+  "Phone No. ": 6394781229,
+  "Admission No.": "U22ME154",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737970030/Passport/xdl6yuicgscdypfxfzcr.jpg"
+ },
+ 
+ {
+  "Timestamp": "1/26/2025 7:22:10",
+  "Name": "Nithin Kethavath",
+  "Branch": "Mechanical",
+  "Phone No. ": 8555834144,
+  "Admission No.": "U22ME165",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737970033/Passport/i2xfp30zz6hha2hcvyu4.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:23:09",
+  "Name": "Jyoshna Challa",
+  "Branch": "Mechanical",
+  "Phone No. ": 6281268628,
+  "Admission No.": "U23ME232",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965418/Passport/c5vqjcjn82gyhymwqclw.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:23:57",
+  "Name": "Parwati Ben Damor",
+  "Branch": "Mechanical",
+  "Phone No. ": 6354768930,
+  "Admission No.": "U23ME064",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965413/Passport/riirxwvir6ufngmjgibw.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:24:30",
+  "Name": "Rudra",
+  "Branch": "Mechanical",
+  "Phone No. ": 8789079653,
+  "Admission No.": "U23ME144",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737968331/Passport/zmewly3mngjjwvpa81p8.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:24:45",
+  "Name": "Shishir Pusalkar ",
+  "Branch": "EC",
+  "Phone No. ": 8849023968,
+  "Admission No.": "U23EC009",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965421/Passport/ovxsyj84mom98nqhabk0.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:25:38",
+  "Name": "Aaresh Manjhi",
+  "Branch": "Mechanical",
+  "Phone No. ": 8866482814,
+  "Admission No.": "U23ME034",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965413/Passport/rbpgdg5vvhyta8dtoo4z.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:28:15",
+  "Name": "Shivang Sharma ",
+  "Branch": "EC",
+  "Phone No. ": 8949788418,
+  "Admission No.": "U23EE082",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965415/Passport/nqgwfsjmacveck0zgsik.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:28:18",
+  "Name": "Dakshrajsinh Gohil",
+  "Branch": "EC",
+  "Phone No. ": 8128030280,
+  "Admission No.": "U23EC065",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737966841/Passport/etkicfd7aueot3hbsjtv.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:29:30",
+  "Name": "Nitesh Yadav ",
+  "Branch": "Mechanical",
+  "Phone No. ": 7984431727,
+  "Admission No.": "U23ME123",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965419/Passport/l0v9nbrxobaj5ucfbxfa.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:32:14",
+  "Name": "Dev Shrut Jain ",
+  "Branch": "EC",
+  "Phone No. ": 9826856960,
+  "Admission No.": "U23AI068",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965417/Passport/fbrxiicasitsfjfjv85s.jpg"
+ },
+ {
+  "Timestamp": "26/01/2025 07:32:13",
+  "Name": "Nilang Bhuva",
+  "Branch": "EC",
+  "Phone No. ": 9664940492,
+  "Admission No.": "u23ai047",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737968477/Passport/urbzaomwxvlhafeujlfk.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:34:19",
+  "Name": "Ajeet Kumar",
+  "Branch": "Mechanical",
+  "Phone No. ": 8604010371,
+  "Admission No.": "U22ME094 ",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737968333/Passport/mmrtszuphivclzfwkejx.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:34:19",
+  "Name": "Yagna Rao",
+  "Branch": "EC",
+  "Phone No. ": 8604010371,
+  "Admission No.": "U22CS104 ",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737967345/Passport/ayjyoz5wvhfapqwynbac.jpg"
+ },
+ 
+ {
+  "Timestamp": "1/26/2025 7:36:11",
+  "Name": "G. Vijay Varun Reddy",
+  "Branch": "Mechanical",
+  "Phone No. ": 8919474688,
+  "Admission No.": "U22ME207",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965421/Passport/pfwiixcnfzza9rrnzdgl.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:36:30",
+  "Name": "Dudakiya Kevin ",
+  "Branch": "EC",
+  "Phone No. ": 6356401441,
+  "Admission No.": "U23EC059 ",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737970030/Passport/vwkayy4okx5fyu3zqhtl.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:38:24",
+  "Name": "Sujal k.",
+  "Branch": "Mechanical",
+  "Phone No. ": 7574064839,
+  "Admission No.": "U22ME077 ",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965418/Passport/rcofsih00yhqq9uuhd3h.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:40:15",
+  "Name": "Azmeera Srithan",
+  "Branch": "Mechanical",
+  "Phone No. ": 6303948779,
+  "Admission No.": "U23ME198",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965419/Passport/vbfs9frezuu57rfmuyg3.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:50:45",
+  "Name": "Kirtan patel",
+  "Branch": "EC",
+  "Phone No. ": 9925015207,
+  "Admission No.": "U23EC033",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965415/Passport/ljekidpmysxwkw5qgcn6.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:53:57",
+  "Name": "Hrisha Joshi",
+  "Branch": "EC",
+  "Phone No. ": 9601432239,
+  "Admission No.": "U23EC045",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965416/Passport/nvk4mtejuon8exspv6me.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 7:57:09",
+  "Name": "Jival Dhingra ",
+  "Branch": "EC",
+  "Phone No. ": 8160685937,
+  "Admission No.": "U23EE031",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965416/Passport/usxeb1hqjyzjpsxmwdvk.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 8:21:21",
+  "Name": "Rudra Patil",
+  "Branch": "Mechanical",
+  "Phone No. ": 8669145420,
+  "Admission No.": "U22ME100",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965413/Passport/iwnpj5fg3q8q3hlggzsa.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 8:42:44",
+  "Name": "Rishika Agarwal ",
+  "Branch": "EC",
+  "Phone No. ": 6377157953,
+  "Admission No.": "U22EE084",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737968332/Passport/hiknwsmw4fmkbxibaszn.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 9:06:01",
+  "Name": "Amisha soni",
+  "Branch": "Electrical ",
+  "Phone No. ": 6306778047,
+  "Admission No.": "U22EE075 ",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965417/Passport/l3xrxynn8mvx6yj43znz.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 9:40:13",
+  "Name": "Akhilesh Kumar",
+  "Branch": "Mechanical",
+  "Phone No. ": 9622798771,
+  "Admission No.": "U21ME179",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737966228/Passport/ivg7o2zgrekzbv97c2rp.jpg"
+ },
+ 
+ {
+  "Timestamp": "1/26/2025 9:25:45",
+  "Name": "Sashwat Thakur",
+  "Branch": "EC",
+  "Phone No. ": 9106017314,
+  "Admission No.": "u23ee020",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965422/Passport/b6ptdsk4fqgpyijwhjg3.jpg"
+ },
+ {
+  "Timestamp": "1/26/2025 9:25:45",
+  "Name": "Vyom Vyas",
+  "Branch": "EC",
+  "Phone No. ": 9428336004,
+  "Admission No.": "u22ee006",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737967468/Passport/ecuenpsif1aqsted7kyi.jpg"
+ },
+ {
+  "Timestamp": "https://drive.google.com/file/d/1wtLq_AuyjJsOK4wUCUONX_30NlJ87Swz/view?usp=drive_link",
+  "Name": "Sneha Hiralal Patil ",
+  "Branch": "EC",
+  "Phone No. ": 9429409313,
+  "Admission No.": "U23EC013",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737965417/Passport/tvu6qitq83mdjinifag9.jpg"
+ },
+ {
+  "Timestamp": "https://drive.google.com/file/d/1wtLq_AuyjJsOK4wUCUONX_30NlJ87Swz/view?usp=drive_link",
+  "Name": "Dhruv Shah",
+  "Branch": "EC",
+  "Phone No. ": 9429409313,
+  "Admission No.": "U23EC002",
+  "photo": "https://res.cloudinary.com/dk3jdkoh2/image/upload/v1737970566/Passport/yjhyng22othfpkcufpvj.jpg"
+ }
+]
+
+                    
+                            const tableBody = document.getElementById("studentTable");
+                    
+                            students.forEach((student, index) => {
+                                const row = document.createElement("tr");
+                    
+                                row.innerHTML = `
+                                    <td><img src="${student.photo}" width="100"></td>
+                                    <td>${student.Name}</td>
+                                    <td>${student.Branch}</td>
+                                `;
+                    
+                                tableBody.appendChild(row);
+                            });
+
                 }
             });
         });
